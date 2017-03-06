@@ -1,4 +1,4 @@
-package com.ysh.catalog.controller;
+package com.ysh.catalog.spring.config.controller;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import com.ysh.catalog.model.Customer;
 public class CustomerController {
 
 	@Autowired
-	CustomerDao customerDao;
+	private CustomerDao customerDao;
 
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
 	public List<Customer> readUserInfo() {

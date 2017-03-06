@@ -1,10 +1,11 @@
-package com.ysh.config.spring;
+package com.ysh.catalog.spring.config.controller;
 
 import javax.annotation.PreDestroy;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +16,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 @EnableConfigurationProperties(DataSourceProperties.class)
+@MapperScan("com.ysh.catalog.dao")
 public class WebContent {
 
 	@Autowired

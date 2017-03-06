@@ -1,11 +1,10 @@
-package com.ysh.catalog.controller;
+package com.ysh.catalog.spring.config.controller;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -16,7 +15,6 @@ public class HelloWorldController {
 	
 	Executor executor = Executors.newFixedThreadPool(1); 
 
-    @ResponseBody
     @RequestMapping(value = "/hello/{nPath}")
     String home(@PathVariable(value = "nPath") int nPath ) {   
     	
@@ -41,7 +39,6 @@ public class HelloWorldController {
         return "Hello World!"+n;
     }
     
-    @ResponseBody
     @RequestMapping(value = "/user")
     String user() {    
     	

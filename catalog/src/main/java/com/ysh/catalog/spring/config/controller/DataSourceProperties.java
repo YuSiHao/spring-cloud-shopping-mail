@@ -1,4 +1,4 @@
-package com.ysh.config.spring;
+package com.ysh.catalog.spring.config.controller;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

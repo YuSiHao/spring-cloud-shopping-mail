@@ -9,6 +9,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 public class WebInit {
 
 	public static void main(String[] args) {
+		System.out.println("start running config service");
 		SpringApplication.run(WebInit.class, args);
 	}
 }
