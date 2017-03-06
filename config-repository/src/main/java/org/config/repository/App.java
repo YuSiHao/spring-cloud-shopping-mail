@@ -1,4 +1,4 @@
-package org.config;
+package org.config.repository;
 
 /**
  * Hello world!
