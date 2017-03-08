@@ -1,4 +1,4 @@
-package com.ysh.catalog.spring.config.controller;
+package com.ysh.catalog.controller;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;

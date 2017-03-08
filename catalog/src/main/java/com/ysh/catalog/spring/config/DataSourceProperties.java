@@ -1,7 +1,6 @@
-package com.ysh.catalog.spring.config.controller;
+package com.ysh.catalog.spring.config;
 
 
-import javax.annotation.PostConstruct;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;

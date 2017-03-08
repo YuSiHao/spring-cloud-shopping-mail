@@ -1,4 +1,4 @@
-package com.ysh.catalog.spring.config.controller;
+package com.ysh.catalog.controller;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ysh.catalog.dao.CustomerDao;
 import com.ysh.catalog.model.Customer;
+import com.ysh.catalog.service.CustomerService;
 
 @RestController
 @RequestMapping(value = "/forCustomer")
@@ -16,11 +17,22 @@ public class CustomerController {
 
 	@Autowired
 	private CustomerDao customerDao;
+	
+	@Autowired
+	private CustomerService customerService;
 
-	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
-	public List<Customer> readUserInfo() {
+	@RequestMapping(value = "/byDb", method = RequestMethod.GET)
+	public List<Customer> findAllCustomersByDb() {
 		List<Customer> CustomerList = customerDao.findAll();
 		return CustomerList;
 	}
+	
+	@RequestMapping(value = "/byApiCall", method = RequestMethod.GET)
+	public List<Customer> findAllCustomersByApiCall() {
+		List<Customer> CustomerList = customerService.findAll();
+		return CustomerList;
+	}
+	
+	
 
 }
