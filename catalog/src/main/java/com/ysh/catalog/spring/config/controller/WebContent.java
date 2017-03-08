@@ -7,6 +7,7 @@ import org.apache.tomcat.jdbc.pool.DataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
+import org.mybatis.spring.mapper.MapperFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +19,7 @@ import com.ysh.catalog.mapper.CustomerMapper;
 
 @Configuration
 @EnableConfigurationProperties(DataSourceProperties.class)
-@MapperScan(basePackages = "com.ysh.catalog.*")
+@MapperScan("com.ysh.catalog.*")
 public class WebContent {
 
 	@Autowired
@@ -61,6 +62,7 @@ public class WebContent {
 	@Bean
 	public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+		
 		sqlSessionFactoryBean.setDataSource(dataSource());
 		return (SqlSessionFactory) sqlSessionFactoryBean.getObject();
 	}
@@ -73,6 +75,15 @@ public class WebContent {
 		SqlSessionTemplate sessionTemplate = new SqlSessionTemplate(sqlSessionFactoryBean);
 		return sessionTemplate.getMapper(CustomerMapper.class);
 	}
+	
+	@Bean
+	public MapperFactoryBean<CustomerMapper> mapperFactoryBean() throws Exception{
+		MapperFactoryBean<CustomerMapper> mapperFactoryBean = new MapperFactoryBean<>();
+		mapperFactoryBean.setSqlSessionFactory(sqlSessionFactoryBean());
+		mapperFactoryBean.setMapperInterface(CustomerMapper.class);
+		return mapperFactoryBean;
+	}
+	
 
 	@Bean
 	public PlatformTransactionManager transactionManager() {

@@ -10,6 +10,7 @@
 		<module>config</module>
 		<module>catalog</module>
     <module>config-repository</module>
+    <module>eureka</module>
   </modules>
 
 	<parent>
