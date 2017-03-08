@@ -1,7 +1,12 @@
 package com.ysh.catalog.spring.config.controller;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+
+@RefreshScope
 @ConfigurationProperties(prefix = DataSourceProperties.DS, ignoreUnknownFields = false)
 public class DataSourceProperties {
 
@@ -24,7 +29,13 @@ public class DataSourceProperties {
 	private boolean removeAbandoned = true;
 
 	private int removeAbandonedTimeout = 180;
-
+	
+	@PostConstruct
+	public void show() {
+		System.out.println("password=" + password);
+		System.out.println("url=" + url);
+	}
+	
 	public int getMaxIdle() {
 		return maxIdle;
 	}
