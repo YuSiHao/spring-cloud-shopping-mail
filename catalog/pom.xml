@@ -8,7 +8,7 @@
 		<artifactId>spring-cloud-shopping-mail</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	
+
 
 	<artifactId>catalog</artifactId>
 	<name>catalog</name>
@@ -19,18 +19,18 @@
 		<java.version>1.8</java.version>
 		<!-- The main class to start by executing java -jar -->
 		<start-class>com.ysh.catalog.spring.config.controller.WebInit</start-class>
-	
+
 	</properties>
 
 
 
 	<dependencies>
-		
+
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -41,8 +41,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
-		<!-- for mysql database -->
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+
+		</dependency>
+
+		<!-- for mysql database (jdbc) -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -55,7 +61,7 @@
 			<artifactId>spring-orm</artifactId>
 		</dependency>
 
-		<!-- for myBatis (jdbc)-->
+		<!-- for myBatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
