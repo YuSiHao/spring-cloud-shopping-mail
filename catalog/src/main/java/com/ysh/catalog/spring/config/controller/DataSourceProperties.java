@@ -30,12 +30,6 @@ public class DataSourceProperties {
 
 	private int removeAbandonedTimeout = 180;
 	
-	@PostConstruct
-	public void show() {
-		System.out.println("password=" + password);
-		System.out.println("url=" + url);
-	}
-	
 	public int getMaxIdle() {
 		return maxIdle;
 	}
