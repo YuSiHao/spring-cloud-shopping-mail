@@ -5,19 +5,18 @@ import javax.annotation.PreDestroy;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
-import org.mybatis.spring.mapper.MapperFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 
-import com.ysh.catalog.mapper.CustomerMapper;
 
+@RefreshScope
 @Configuration
 @EnableConfigurationProperties(DataSourceProperties.class)
 @MapperScan("com.ysh.catalog.dao")
@@ -71,23 +70,6 @@ public class WebContent {
 		return (SqlSessionFactory) sqlSessionFactoryBean.getObject();
 	}
 
-	/*@Bean
-	public CustomerMapper customerMapper() throws Exception {
-		SqlSessionFactory sqlSessionFactoryBean = sqlSessionFactoryBean();
-		sqlSessionFactoryBean.getConfiguration().addMapper(CustomerMapper.class);
-		@SuppressWarnings("resource")
-		SqlSessionTemplate sessionTemplate = new SqlSessionTemplate(sqlSessionFactoryBean);
-		return sessionTemplate.getMapper(CustomerMapper.class);
-	}
-	
-	@Bean
-	public MapperFactoryBean<CustomerMapper> mapperFactoryBean() throws Exception{
-		MapperFactoryBean<CustomerMapper> mapperFactoryBean = new MapperFactoryBean<>();
-		mapperFactoryBean.setSqlSessionFactory(sqlSessionFactoryBean());
-		mapperFactoryBean.setMapperInterface(CustomerMapper.class);
-		return mapperFactoryBean;
-	}*/
-	
 
 	@Bean
 	public PlatformTransactionManager transactionManager() {

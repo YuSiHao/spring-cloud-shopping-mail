@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ysh.catalog.dao.Customer">
+<mapper namespace="com.ysh.catalog.dao.CustomerDao">
   <select id="findAll" resultType="com.ysh.catalog.model.Customer">
     select * from customer
   </select>
