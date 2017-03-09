@@ -21,7 +21,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@SuppressWarnings("unchecked")
 	@HystrixCommand(fallbackMethod = "fallBackFindAll")
 	public List<Customer> findAll() {
-		return restTemplate.getForObject("http://" + Constants.CATALOG_SERVICE + "/forCustomer", List.class);
+		return restTemplate.getForObject("http://" + Constants.LOCALHOST + "/forCustomer/byDb", List.class);
 	}
 
 	@SuppressWarnings("unused")
@@ -36,5 +36,7 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerList;
 
 	}
+	
+	
 
 }
