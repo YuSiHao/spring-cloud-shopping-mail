@@ -12,6 +12,7 @@
 		<module>config-repository</module>
 		<module>eureka</module>
     <module>auth</module>
+    <module>order</module>
   </modules>
 
 	<parent>
