@@ -21,7 +21,6 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 
-	@Autowired
 
 	@RequestMapping(value = "/byDb", method = RequestMethod.GET)
 	public List<Customer> findAllCustomersByDb() {

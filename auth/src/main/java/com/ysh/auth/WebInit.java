@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class WebInit {
 
 	public static void main(String[] args) {
+		System.out.println("start running auth service");
 		SpringApplication.run(WebInit.class, args);
 	}
 }
