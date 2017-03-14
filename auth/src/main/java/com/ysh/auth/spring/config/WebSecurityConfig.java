@@ -21,18 +21,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		// @formatter:off csrf().disable():do not need this kind of protection
-		http.authorizeRequests().anyRequest().authenticated().and().csrf().disable();
-		// @formatter:on
+		http.
+			csrf().
+				disable()
+			.authorizeRequests()	
+			.anyRequest()
+				.authenticated()
+				.and()
+			.formLogin()
+				.permitAll()
+				.and()
+			.logout()
+				.permitAll();
 	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-		authenticationManagerBuilder.userDetailsService(userDetailsService)
-				.passwordEncoder(new BCryptPasswordEncoder());
+		authenticationManagerBuilder.userDetailsService(userDetailsService);
+//				.passwordEncoder(new BCryptPasswordEncoder());
 	}
 
-	//make authenticationManagerBuilder into bean
+	// make authenticationManagerBuilder into bean
 	@Override
 	@Bean
 	public AuthenticationManager authenticationManagerBean() throws Exception {
