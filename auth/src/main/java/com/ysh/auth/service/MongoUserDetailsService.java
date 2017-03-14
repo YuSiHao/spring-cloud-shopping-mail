@@ -14,7 +14,7 @@ public class MongoUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	private UserDao userDao;
-
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userDao.findUserByName(username);
