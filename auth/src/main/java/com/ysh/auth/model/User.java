@@ -70,5 +70,9 @@ public class User implements UserDetails {
 	public String getUsername() {
 		return username;
 	}
+	
+	public void setAuthorities(List<Authority> authorities) {
+		this.authorities = authorities;
+	}
 
 }

@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 
 import com.ysh.auth.service.MongoUserDetailsService;
 
@@ -24,8 +25,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			csrf().
 				disable()
 			.authorizeRequests()
-				.antMatchers("/admin/*")
-				.hasRole("admin")
+				.antMatchers("/forAdmin/*")
+				.hasRole("ADMIN")
 				.and()
 			.authorizeRequests()	
 			.anyRequest()
@@ -35,12 +36,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll()
 				.and()
 			.logout()
-				.permitAll();
+				.permitAll()
+				.and().
+			sessionManagement().
+				sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED);
 	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
 		authenticationManagerBuilder.userDetailsService(userDetailsService);
+//		authenticationManagerBuilder
+//         	.inMemoryAuthentication()
+//             	.withUser("jack").password("123").roles("ADMIN");
 //				.passwordEncoder(new BCryptPasswordEncoder());
 	}
 
@@ -50,4 +57,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
+	
 }
