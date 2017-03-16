@@ -21,18 +21,16 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 
-
-	@RequestMapping(value = "/byDb", method = RequestMethod.GET)
+	@RequestMapping(value = "/byDb", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
 	public List<Customer> findAllCustomersByDb() {
 		List<Customer> CustomerList = customerDao.findAll();
 		return CustomerList;
 	}
 
-	@RequestMapping(value = "/byApiCall", method = RequestMethod.GET)
+	@RequestMapping(value = "/byApiCall", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
 	public List<Customer> findAllCustomersByApiCall() {
 		List<Customer> CustomerList = customerService.findAll();
 		return CustomerList;
 	}
-
 
 }
