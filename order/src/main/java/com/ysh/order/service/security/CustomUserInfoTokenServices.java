@@ -43,7 +43,7 @@ public class CustomUserInfoTokenServices implements ResourceServerTokenServices 
 	private String tokenType = DefaultOAuth2AccessToken.BEARER_TYPE;
 
 	private AuthoritiesExtractor authoritiesExtractor = new FixedAuthoritiesExtractor();
-
+	//userInfoEndpointUrl to http://localhost:8090/oauth/token
 	public CustomUserInfoTokenServices(String userInfoEndpointUrl, String clientId) {
 		this.userInfoEndpointUrl = userInfoEndpointUrl;
 		this.clientId = clientId;
@@ -62,6 +62,7 @@ public class CustomUserInfoTokenServices implements ResourceServerTokenServices 
 	}
 
 	@Override
+	//first response from auth the code of accessToken
 	public OAuth2Authentication loadAuthentication(String accessToken)
 			throws AuthenticationException, InvalidTokenException {
 		Map<String, Object> map = getMap(this.userInfoEndpointUrl, accessToken);
@@ -72,7 +73,7 @@ public class CustomUserInfoTokenServices implements ResourceServerTokenServices 
 		return extractAuthentication(map);
 	}
 
-	private OAuth2Authentication extractAuthentication(Map<String, Object> map) {
+	private OAuth2Authentication extractAuthentication(Map<String, Object> map) { //map is accesstoken
 		Object principal = getPrincipal(map);
 		OAuth2Request request = getRequest(map);
 		List<GrantedAuthority> authorities = this.authoritiesExtractor
