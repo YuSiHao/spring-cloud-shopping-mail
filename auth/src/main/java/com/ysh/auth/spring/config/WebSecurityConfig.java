@@ -21,25 +21,32 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.
-			csrf().
-				disable()
-			.authorizeRequests()
-				.antMatchers("/forAdmin/*")
-				.hasRole("ADMIN")
-				.and()
-			.authorizeRequests()	
-			.anyRequest()
-				.authenticated()
-				.and()
-			.formLogin()
-				.permitAll()
-				.and()
-			.logout()
-				.permitAll()
-				.and().
-			sessionManagement().
-				sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED);
+		// @formatter:off
+					http
+						.authorizeRequests().anyRequest().authenticated()
+					.and()
+						.csrf().disable();
+					// @formatter:on
+		
+//		http.
+//			csrf().
+//				disable()
+//			.authorizeRequests()
+//				.antMatchers("/forAdmin/*")
+//				.hasRole("ADMIN")
+//				.and()
+//			.authorizeRequests()	
+//			.anyRequest()
+//				.authenticated()
+//				.and()
+//			.formLogin()
+//				.permitAll()
+//				.and()
+//			.logout()
+//				.permitAll()
+//				.and().
+//			sessionManagement().
+//				sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED);
 	}
 
 	@Override

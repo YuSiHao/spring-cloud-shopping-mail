@@ -14,8 +14,8 @@ import com.ysh.catalog.api.model.Customer;
 @RequestMapping("/test")
 public class TestController {
 
-	@Autowired
-	private CustomerController customerController;
+	/*@Autowired
+	private CustomerController customerController;*/
 	
 	// @Autowired
 	// private UserControllerClient userControllerClient;
@@ -28,10 +28,10 @@ public class TestController {
 		return result;
 	}
 	
-	@RequestMapping(value = "/customer", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
+	/*@RequestMapping(value = "/customer", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
 	public List<Customer> testCustomer() {
 		List<Customer> customers = customerController.findAllCustomersByDb();
 		return customers;
-	}
+	}*/
 
 }

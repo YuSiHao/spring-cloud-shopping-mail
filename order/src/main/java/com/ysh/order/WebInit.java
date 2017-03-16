@@ -8,7 +8,7 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
 import com.ysh.catalog.api.controller.CustomerController;
 
-@EnableEurekaClient
+//@EnableEurekaClient
 @SpringBootApplication
 @EnableFeignClients(clients = CustomerController.class)
 public class WebInit {
