@@ -44,6 +44,11 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
 				.withClient("order")
 				.secret("order")
 				.authorizedGrantTypes("client_credentials", "refresh_token")
+				.scopes("server")
+		.and()
+				.withClient("auth")
+				.secret("auth")
+				.authorizedGrantTypes("client_credentials", "refresh_token")
 				.scopes("server");
 		// @formatter:on
 	}

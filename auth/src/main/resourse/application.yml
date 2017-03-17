@@ -5,3 +5,14 @@ spring:
   application:
     name: auth
 
+security:
+  oauth2:
+    client:
+      clientId: auth
+      clientSecret: auth
+      accessTokenUri: http://localhost:8090/oauth/token
+      grant-type: client_credentials
+      scope: server
+    resource:
+      user-info-uri: http://localhost:8090/users/currentUser
+
