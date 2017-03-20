@@ -1,4 +1,4 @@
-package com.ysh.core.receiver.jms;
+package com.ysh.core.listener.jms;
 
 
 import org.springframework.jms.annotation.JmsListener;
@@ -8,20 +8,20 @@ import com.ysh.core.model.JmsMessage;
 
 
 @Component
-public class TopicReceiver {
+public class QueueListener {
 
 	
-	@JmsListener(destination = "topic", containerFactory = "myFactory")
+	@JmsListener(destination = "testqueue", containerFactory = "jmsFactory")
 	public void method1(JmsMessage jmsMessage) {
 		System.out.println("Method1: " + jmsMessage.toString());
 	}
 
-	@JmsListener(destination = "topic", containerFactory = "myFactory")
+	@JmsListener(destination = "testqueue", containerFactory = "jmsFactory")
 	public void method2(JmsMessage jmsMessage) {
 		System.out.println("Method2: " + jmsMessage.toString());
 	}
-	
-	@JmsListener(destination = "topic", containerFactory = "myFactory")
+
+	@JmsListener(destination = "testqueue", containerFactory = "jmsFactory")
 	public void method3(JmsMessage jmsMessage) {
 		System.out.println("Method3: " + jmsMessage.toString());
 	}

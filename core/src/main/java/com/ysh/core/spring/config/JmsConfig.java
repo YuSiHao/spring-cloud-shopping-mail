@@ -27,11 +27,9 @@ public class JmsConfig {
 	}
 
 	@Bean
-	public DefaultJmsListenerContainerFactory myFactory(ConnectionFactory connectionFactory) {
+	public DefaultJmsListenerContainerFactory jmsFactory(ConnectionFactory connectionFactory) {
 		DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
-		// topics should be possible. default is queue
 		factory.setPubSubDomain(true);
-		// set the embedded activMQ connectionFactory created by spring boot
 		factory.setConnectionFactory(ConnectionFactory());
 
 		factory.setMessageConverter(messageConverter());
@@ -40,12 +38,19 @@ public class JmsConfig {
 	}
 
 	@Bean
-	public Destination topic() {
+	public Destination testtopic1() { 
+		//method name is destination name
+		return new ActiveMQTopic("testtopic1");
+	}
+	
+	@Bean
+	public Destination testtopic() { 
+		//method name is destination name
 		return new ActiveMQTopic("testtopic");
 	}
 
 	@Bean
-	public Destination queue() {
+	public Destination testqueue() {
 		return new ActiveMQQueue("testqueue");
 	}
 
