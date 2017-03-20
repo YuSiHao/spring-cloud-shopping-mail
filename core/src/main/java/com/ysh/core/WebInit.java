@@ -24,10 +24,8 @@ public class WebInit implements CommandLineRunner {
 	@Override
 	public void run(String... arg0) throws Exception {
 
-		System.out.println("sending three topic messages, 9 listener should receive the messages");
+		System.out.println("sending one topic messages, 3 listener should receive the messages");
 		jmsTemplate.convertAndSend("topic", new JmsMessage("info", "topic message1"));
-		jmsTemplate.convertAndSend("topic", new JmsMessage("info", "topic message2"));
-		jmsTemplate.convertAndSend("topic", new JmsMessage("info", "topic message3"));
 
 		System.out.println("sending 4 queue messages, 4 (different) listener should receive the messages");
 		jmsTemplate.convertAndSend("queue", new JmsMessage("info", "queue message"));
