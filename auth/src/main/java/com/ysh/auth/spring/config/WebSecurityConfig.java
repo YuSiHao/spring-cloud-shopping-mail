@@ -15,10 +15,19 @@ import com.ysh.auth.service.MongoUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends GlobalAuthenticationConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private MongoUserDetailsService userDetailsService;
+	
+	protected void configure(HttpSecurity http) throws Exception {
+		http
+			.authorizeRequests()
+				.anyRequest().authenticated()
+				.and()
+			.formLogin().and()
+			.httpBasic();
+	}
 	
 	
 //	@Override
