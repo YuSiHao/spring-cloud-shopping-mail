@@ -23,6 +23,12 @@ public class UserController {
 		System.out.println("testClient ok");
 		return "testClient ok";
 	}
+	
+	@RequestMapping(value = "/testSecureClient", method = RequestMethod.GET)
+	public String testSecureClient() {
+		System.out.println("testSecureClient ok");
+		return "testSecureClient ok";
+	}
 
 	public static String getAuthenticatedUsername() {
 		String username = null;
