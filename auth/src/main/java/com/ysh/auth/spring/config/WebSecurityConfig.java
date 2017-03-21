@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -14,23 +15,10 @@ import com.ysh.auth.service.MongoUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends GlobalAuthenticationConfigurerAdapter {
 
 	@Autowired
 	private MongoUserDetailsService userDetailsService;
-	
-	
-	/*@Override
-    public void configure(WebSecurity web) throws Exception {
-        web
-                .ignoring()
-                .antMatchers("/h2console/**")
-                .antMatchers("/api/register")
-                .antMatchers("/api/activate")
-                .antMatchers("/api/lostpassword")
-                .antMatchers("/api/resetpassword")
-                .antMatchers("/api/hello");
-    }*/
 	
 	
 //	@Override
@@ -73,11 +61,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	// make authenticationManagerBuilder into bean
-	@Override
-	@Bean
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
-	}
+//	@Override
+//	@Bean
+//	public AuthenticationManager authenticationManagerBean() throws Exception {
+//		return super.authenticationManagerBean();
+//	}
 	
 	/*@EnableGlobalMethodSecurity(prePostEnabled = true, jsr250Enabled = true)
 	private static class GlobalSecurityConfiguration extends GlobalMethodSecurityConfiguration {
