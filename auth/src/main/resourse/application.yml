@@ -14,5 +14,6 @@ security:
       grant-type: password
       scope: server
     resource:
-      user-info-uri: http://localhost:8090/users/currentUser
+      filter-order: 3
+
 
