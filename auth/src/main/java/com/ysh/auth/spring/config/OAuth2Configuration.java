@@ -43,8 +43,11 @@ public class OAuth2Configuration {
 				.and()
 				.authorizeRequests()
 					.antMatchers("/users/**")
-						.authenticated();
-					
+						.authenticated()
+				.and()
+					.formLogin()
+						.loginPage("/login")
+						.permitAll();
 		}
 	}
 	

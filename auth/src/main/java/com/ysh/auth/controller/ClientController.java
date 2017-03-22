@@ -19,33 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ClientController {
 
     private static Logger logger = LoggerFactory.getLogger(ClientController.class);
-    /*
-        response_type：表示授权类型，必选项，此处的值固定为"code"
-        client_id：表示客户端的ID，必选项
-        redirect_uri：表示重定向URI，可选项
-        scope：表示申请的权限范围，可选项
-        state：表示客户端的当前状态，可以指定任意值，认证服务器会原封不动地返回这个值
-    */
-    /**
-     * 获得授权码
-     * @return
-     */
-    @RequestMapping(method = RequestMethod.GET)
-    public String client() {
-        try {
-            OAuthClientRequest oauthResponse = OAuthClientRequest
-                                               .authorizationLocation(ConstantKey.OAUTH_CLIENT_AUTHORIZE)
-                                               .setResponseType(OAuth.OAUTH_CODE)
-                                               .setClientId(ConstantKey.OAUTH_CLIENT_ID)
-                                               .setRedirectURI(ConstantKey.OAUTH_CLIENT_CALLBACK)
-                                               .setScope(ConstantKey.OAUTH_CLIENT_SCOPE)
-                                               .buildQueryMessage();
-            return "redirect:"+oauthResponse.getLocationUri();
-        } catch (OAuthSystemException e) {
-            e.printStackTrace();
-        }
-        return "redirect:/home";
-    }
+
 
     /*
         grant_type：表示使用的授权模式，必选项，此处的值固定为"authorization_code"
@@ -59,8 +33,9 @@ public class ClientController {
      */
     @RequestMapping(value = "/oauth_callback" ,method = RequestMethod.GET)
     public String getToken(HttpServletRequest request,Model model) throws Exception {
-    	
-        OAuthAuthzResponse oauthAuthzResponse = null;
+    	System.out.println("into oauth_callback");
+    	return "success";
+       /* OAuthAuthzResponse oauthAuthzResponse = null;
         try {
             oauthAuthzResponse = OAuthAuthzResponse.oauthCodeAuthzResponse(request);
             String code = oauthAuthzResponse.getCode();
@@ -96,7 +71,7 @@ public class ClientController {
             logger.error("getToken OAuthSystemException : " + ex.getMessage());
             model.addAttribute("errorMsg",  ex.getMessage());
             return  "/oauth2/error";
-        }
+        }*/
     }
 
     /*
