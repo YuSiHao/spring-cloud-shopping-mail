@@ -8,4 +8,6 @@ import com.ysh.catalog.model.Customer;
 public interface CustomerDao {
 	
 	List<Customer> findAll();
+	
+	Customer findByName(String name);
 }

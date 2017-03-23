@@ -41,13 +41,14 @@ public class OAuth2Configuration {
 					.headers()
 						.frameOptions().disable()
 				.and()
-				.authorizeRequests()
-					.antMatchers("/users/**")
-						.authenticated()
-				.and()
 					.formLogin()
 						.loginPage("/login")
-						.permitAll();
+							.permitAll()
+				.and()
+				.authorizeRequests()
+					.antMatchers("/users/**")
+						.authenticated();
+				
 		}
 	}
 	
@@ -98,7 +99,7 @@ public class OAuth2Configuration {
 			endpoints
 					.tokenStore(tokenStore)
 					.authenticationManager(authenticationManager);
-//					.userDetailsService(userDetailsService);
+					//.userDetailsService(userDetailsService);
 		}
 		
 		@Bean
