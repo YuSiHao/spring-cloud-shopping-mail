@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ysh.catalog.api.controller.CustomerController;
 import com.ysh.catalog.api.model.Customer;
 import com.ysh.order.dao.IOrderCurd;
-import com.ysh.order.model.Order;
+import com.ysh.order.model.Payform;
 
 @RestController
 @RequestMapping("/test")
@@ -40,8 +40,8 @@ public class TestController {
 	}
 	
 	@RequestMapping(value = "/order", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
-	public List<Order> findOrders() {
-		List<Order> orders = iOrderCurd.findAll();
+	public List<Payform> findOrders() {
+		List<Payform> orders = iOrderCurd.findAll();
 		System.out.println("findOrders");
 		return orders;
 	}

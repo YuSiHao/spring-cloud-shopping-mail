@@ -20,16 +20,16 @@ import org.springframework.transaction.PlatformTransactionManager;
 @EnableJpaRepositories(basePackages = "com.ysh.order.dao")
 public class WebContent {
 
-	@Value("mysqldb.datasource.url")
+	@Value("${mysqldb.datasource.url}")
 	private String MysqlUrl;
 
-	@Value("mysqldb.datasource.username")
+	@Value("${mysqldb.datasource.username}")
 	private String Username;
 
-	@Value("mysqldb.datasource.password")
+	@Value("${mysqldb.datasource.password}")
 	private String Password;
 
-	@Value("HIBERNATE_SHOW_SQL")
+	@Value("${HIBERNATE_SHOW_SQL}")
 	private String HIBERNATE_SHOW_SQL;
 
 
