@@ -16,6 +16,9 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 
+import com.alibaba.druid.pool.DruidDataSource;
+import com.mysql.jdbc.ConnectionProperties;
+
 @Configuration
 @EnableJpaRepositories(basePackages = "com.ysh.order.dao")
 public class WebContent {
@@ -31,6 +34,11 @@ public class WebContent {
 
 	@Value("${HIBERNATE_SHOW_SQL}")
 	private String HIBERNATE_SHOW_SQL;
+	
+	@Value("${spring.datasource.type}")
+	private String datasourceType;
+	
+	
 
 
 	/**
@@ -56,13 +64,14 @@ public class WebContent {
     }
 
 	@Bean(name = "dataSourceMySQL")
-	public DataSource dataSourceMySQL() {
-		DriverManagerDataSource source = new DriverManagerDataSource();
+	public DruidDataSource dataSourceMySQL() {
+		DruidDataSource source = new DruidDataSource();
 		source.setUrl(MysqlUrl);
 		System.out.println("MysqlUrl:"+MysqlUrl);
 		source.setDriverClassName("com.mysql.jdbc.Driver");
 		source.setUsername(Username);
 		source.setPassword(Password);
+		source.setDbType(datasourceType);
 		return source;
 	}
 	
