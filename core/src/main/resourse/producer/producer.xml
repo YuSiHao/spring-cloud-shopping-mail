@@ -8,15 +8,15 @@
 		<property name="url" value="http://publictest-rest.ons.aliyun.com/message" />
 
 		<!-- 阿里云身份验证码,请替换 -->
-		<property name="accessKey" value="XXX" />
+		<property name="accessKey" value="LTAI6IIZjqywjOAD" />
 
 		<!-- 阿里云身份验证密钥,请替换 -->
-		<property name="secretKey" value="XXX" />
+		<property name="secretKey" value="7IQUZe5UmQJnoNmBpeylHLLAPVKEyx" />
 
 		<!-- MQ控制台创建的Topic,请替换 -->
-		<property name="topic" value="XXX" />
+		<property name="topic" value="chandler" />
 
 		<!-- MQ控制台创建的Producer ID,请替换 -->
-		<property name="producerId" value="XXX" />
+		<property name="producerId" value="PID_10310330" />
 	</bean>
 </beans>
