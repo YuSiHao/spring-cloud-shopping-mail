@@ -13,6 +13,7 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.mashape.unirest.request.GetRequest;
 import com.mashape.unirest.request.HttpRequestWithBody;
+import com.ysh.core.model.SimpleMessage;
 import com.ysh.core.util.MD5;
 
 public class HttpMQConsumer {

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.ysh.core.alimq.example.consumer.HttpMQConsumer;
-import com.ysh.core.alimq.example.consumer.SimpleMessage;
+import com.ysh.core.model.SimpleMessage;
 
 
 public class TestHttpConsumerApp {

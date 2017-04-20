@@ -1,4 +1,4 @@
-package com.ysh.core.alimq.example.consumer;
+package com.ysh.core.model;
 
 public class SimpleMessage {
 	private String body;
