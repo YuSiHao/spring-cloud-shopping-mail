@@ -14,7 +14,7 @@ public class TestHttpConsumerApp {
 	 * 启动测试之前请修改配置文件:consumer/consumer.xml
 	 */
 	public static void main(String[] args) {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("consumer/consumer.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("consumer.xml");
 		HttpMQConsumer consumer = context.getBean(HttpMQConsumer.class);
 		List<SimpleMessage> list = consumer.pull();
 		if (list != null && list.size() > 0) {
