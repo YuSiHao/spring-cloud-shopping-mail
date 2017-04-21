@@ -31,7 +31,7 @@ public class WebInit implements CommandLineRunner {
 	public void aliMqRun(String... arg0) throws Exception {
 
 		System.out.println("start aliMq producer");
-		//SimpleMQProducer.main(arg0);
+		SimpleMQProducer.main(arg0);
 		System.out.println("start aliMq consumer");
 		SimpleMQConsumer.main(arg0);
 

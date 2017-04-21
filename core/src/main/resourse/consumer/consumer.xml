@@ -22,7 +22,7 @@
                 <entry value-ref="messageListener">
                     <key>
                         <bean class="com.aliyun.openservices.ons.api.bean.Subscription">
-                            <property name="topic" value="test123321"/> <!-- Topic,请替换 -->
+                            <property name="topic" value="jack123"/> <!-- Topic,请替换 -->
                             <property name="expression" value="*"/><!-- MessageType名: 多个messageType 用 “||”分割 -->
                         </bean>
                     </key>
@@ -33,5 +33,5 @@
     </bean>
 
     <!-- 消息处理器 -->
-    <bean id="messageListener" class="com.alibaba.ons.message.example.consumer.MessageListenerImpl"/>
+    <bean id="messageListener" class="com.ysh.core.alimq.example.consumer.MessageListenerImpl"/>
 </beans>

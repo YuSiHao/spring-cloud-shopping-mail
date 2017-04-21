@@ -24,7 +24,7 @@ public class MqConfig {
     /**
      * 启动测试之前请替换如下 XXX 为您的配置
      */
-    public static final String TOPIC = "test123321";
+    public static final String TOPIC = "jack123";
     public static final String PRODUCER_ID = "PID_10310330";
     public static final String CONSUMER_ID = "CID_10310330";
     public static final String ORDER_TOPIC = "XXX";
