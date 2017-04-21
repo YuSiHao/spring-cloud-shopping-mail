@@ -14,7 +14,7 @@ public class TestHttpProducerApp {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("producer.xml");
 		HttpMQProducer producer = context.getBean(HttpMQProducer.class);
 		// 发送定时消息: producer.send("msg", "tag", "key", startDeliverTime);
-		if (producer.send("msg", "tag", "key")) {
+		if (producer.send("msgsecond", "tag", "key")) {
 			System.out.println("send message success");
 		} else {
 			System.out.println("send message failed");

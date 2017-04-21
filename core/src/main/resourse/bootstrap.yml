@@ -1,9 +1,0 @@
-spring:
-  data:
-    mongodb:
-      database: auth
-      host: localhost
-      port: 27017
-      repositories:
-        enabled: true
-

@@ -16,7 +16,7 @@ import org.springframework.jms.support.converter.MessageType;
 import org.springframework.jms.support.destination.BeanFactoryDestinationResolver;
 import org.springframework.jms.support.destination.DestinationResolver;
 
-@Configuration
+//@Configuration
 public class JmsConfig {
 
 	@Bean

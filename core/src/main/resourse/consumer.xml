@@ -14,7 +14,7 @@
 		<property name="secretKey" value="7IQUZe5UmQJnoNmBpeylHLLAPVKEyx" />
 
 		<!-- MQ控制台创建的Topic,请替换 -->
-		<property name="topic" value="chandler" />
+		<property name="topic" value="jack123" />
 
 		<!-- MQ控制台创建的Consumer ID,请替换 -->
 		<property name="consumerId" value="CID_10310330" />

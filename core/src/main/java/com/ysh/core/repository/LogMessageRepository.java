@@ -3,9 +3,9 @@ package com.ysh.core.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.ysh.core.model.UserMessage;
+import com.ysh.core.model.LogMessage;
 
 @Repository
-public interface UserMessageRepository extends CrudRepository<UserMessage, String> {
+public interface LogMessageRepository extends CrudRepository<LogMessage, String> {
 
 }

@@ -4,6 +4,14 @@ server:
 spring:
   application:
     name: core
+  data:
+    mongodb:
+      database: blog
+      host: localhost
+      port: 27017
+      repositories:
+        enabled: true
+
 
 
 

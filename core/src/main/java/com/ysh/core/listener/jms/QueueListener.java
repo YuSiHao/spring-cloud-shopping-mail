@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import com.ysh.core.model.JmsMessage;
 
 
-@Component
+//@Component
 public class QueueListener {
 
 	
