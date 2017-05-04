@@ -51,5 +51,10 @@ public class TestController {
 		System.out.println("jack no is:"+ redisTemplate.opsForValue().get("jack"));
 		return orders;
 	}
+	
+	@RequestMapping(value = "/testAop", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
+	public String testAop() {
+		return "success";
+	}
 
 }
