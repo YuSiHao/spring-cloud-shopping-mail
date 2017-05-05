@@ -49,13 +49,18 @@ public class TestController {
 		List<Payform> orders = iOrderCurd.findAll();
 		System.out.println("findOrders");
 		redisTemplate.opsForValue().set("jack", "123");
-		System.out.println("jack no is:"+ redisTemplate.opsForValue().get("jack"));
+		System.out.println("jack no is:" + redisTemplate.opsForValue().get("jack"));
 		return orders;
 	}
-	
+
 	@RequestMapping(value = "/testAop", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
 	public String testAop(@RequestParam(defaultValue = "") String name) {
+		testAopParam(name);
 		return "success";
+	}
+
+	public String testAopParam(String name) {
+		return "ok";
 	}
 
 }
