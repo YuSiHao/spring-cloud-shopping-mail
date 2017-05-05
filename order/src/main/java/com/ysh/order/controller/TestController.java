@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ysh.catalog.api.controller.CustomerController;
@@ -53,7 +54,7 @@ public class TestController {
 	}
 	
 	@RequestMapping(value = "/testAop", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
-	public String testAop() {
+	public String testAop(@RequestParam(defaultValue = "") String name) {
 		return "success";
 	}
 
